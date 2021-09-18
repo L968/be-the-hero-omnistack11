@@ -35,4 +35,4 @@ This project is under MIT License. Check the file [LICENSE](LICENSE.md) for more
 
 ![Screenshot](.github/3.png)
 
-![Screenshot](.github/4.png)
+![Screenshot](.github/5.png)
