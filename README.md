@@ -25,7 +25,7 @@ This project was build using the following technologies:
 Be The Hero is a project to connect people who wants to make monetary contributions to NGOs (Non-Governmental Organizations) that needs help
 
 
-## 📝License
+## 📝 License
 
 This project is under MIT License. Check the file [LICENSE](LICENSE.md) for more details.
 \
