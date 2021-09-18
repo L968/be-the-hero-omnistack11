@@ -23,11 +23,11 @@ export default function NewIncident() {
 
         try {
             await api.post('incident', data, { headers: { Authorization: ongId } });
-            alert('Caso criado com sucesso!');
+            alert('Incident created!');
 
             history.push('/profile');
         } catch (error) {
-            alert('Erro ao cadastrar caso: ' + error);
+            alert('Error in create incident: ' + error);
         }
     }
 
@@ -37,20 +37,20 @@ export default function NewIncident() {
                 <section>
                     <img src={logoImg} alt="Be The Hero" />
 
-                    <h1>Cadastrar novo caso</h1>
-                    <p>Descreva o caso detalhadamente para encontrar um herói para resolver isso.</p>
+                    <h1>Create a new incident</h1>
+                    <p>Describe the incident detailed to find a hero to solve it.</p>
 
                     <Link to="/profile" className="back-link">
                         <FiArrowLeft size={16} color="#e02041" />
-                        Voltar para home
+                        Back
                     </Link>
                 </section>
                 <form onSubmit={handleNewIncident}>
-                    <input placeholder="Título do caso" value={title}       onChange={ e => setTitle(e.target.value) } />
-                    <textarea placeholder="Descrição"   value={description} onChange={ e => setDescription(e.target.value) } />
-                    <input placeholder="Valor em reais" value={value}       onChange={ e => setValue(e.target.value) } />
+                    <input placeholder="Incident Title" value={title}       onChange={ e => setTitle(e.target.value) } />
+                    <textarea placeholder="Description"   value={description} onChange={ e => setDescription(e.target.value) } />
+                    <input placeholder="Value in Dollars" value={value}       onChange={ e => setValue(e.target.value) } />
 
-                    <button type="submit" className="button">Cadastrar</button>
+                    <button type="submit" className="button">Create</button>
                 </form>
             </div>
         </div>

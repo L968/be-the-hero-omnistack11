@@ -7,15 +7,12 @@ const IncidentController = require('./controllers/IncidentController');
 const ProfileController = require('./controllers/ProfileController');
 const SessionController = require('./controllers/SessionController');
 
-//#region Session
 routes.post('/session', celebrate({
     [Segments.BODY]: Joi.object().keys({
         id: Joi.string().required()
     })
 }), SessionController.create);
-//#endregion
 
-//#region Ong
 routes.get('/ong', OngController.index);
 
 routes.post('/ong', celebrate({
@@ -27,9 +24,7 @@ routes.post('/ong', celebrate({
         uf:       Joi.string().required().length(2)
     })
 }), OngController.create);
-//#endregion
 
-//#region Incident
 routes.get('/incident', celebrate({
     [Segments.QUERY]: Joi.object().keys({
         page: Joi.number()
@@ -55,15 +50,11 @@ routes.delete('/incident/:id', celebrate({
         authorization: Joi.string().required()
     }).unknown()
 }), IncidentController.delete);
-//#endregion
 
-//#region Profile
 routes.get('/profile', celebrate({
     [Segments.HEADERS]: Joi.object({
         authorization: Joi.string().required()
     }).unknown()
 }), ProfileController.index);
-
-//#endregion
 
 module.exports = routes;

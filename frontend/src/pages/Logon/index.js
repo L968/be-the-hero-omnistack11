@@ -20,12 +20,18 @@ export default function Logon() {
         try {
             const response = await api.post('session', { id });
 
+            if (response.status !== 200) {
+                alert(response.data.validation.body.message);
+                return;
+            }
+
             localStorage.setItem('ongId', id);
             localStorage.setItem('ongName', response.data.name);
 
             history.push('/profile');
         } catch (error) {
-            alert('Falha no login, tente novamente');
+            alert('An unexpected error has occurred. Please try again later');
+            console.log(error.message);
         }
     }
 
@@ -35,15 +41,15 @@ export default function Logon() {
                 <img src={logoImg} alt="Be The Hero" />
 
                 <form onSubmit={handleLogin}>
-                    <h1>Faça seu Logon</h1>
+                    <h1>Login</h1>
 
-                    <input placeholder="Seu ID" value={id} onChange={ e => setId(e.target.value) } />
+                    <input placeholder="Your ID" value={id} onChange={ e => setId(e.target.value) } />
 
-                    <button type="submit" className="button">Entrar</button>
+                    <button type="submit" className="button">Login</button>
 
                     <Link to="/register" className="back-link">
                         <FiLogIn size={16} color="#e02041" />
-                        Não tenho cadastro
+                        Sign Up
                     </Link>
                 </form>
             </section>
